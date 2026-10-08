@@ -177,7 +177,9 @@ try:
                     entered = True
 
         if not entered:
-            msg = f"HOLD {bias_txt} Price {price:.2f} PDH {float(last[\'PDH\']):.2f} PDL {float(last[\'PDL\']):.2f} ATR {atr:.2f} Cap {capital:.2f}"
+                pdh_val = float(last['PDH'])
+                pdl_val = float(last['PDL'])
+                msg = f"HOLD {bias_txt} Price {price:.2f} PDH {pdh_val:.2f} PDL {pdl_val:.2f} ATR {atr:.2f} Cap {capital:.2f}"
 
     print(msg)
     # Only send Telegram for signals/exits or every 30 mins
