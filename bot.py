@@ -91,8 +91,10 @@ try:
     # EOD Close
     if position != 0 and is_eod:
         pnl = (price - entry) * position - SPREAD * abs(position) if position > 0 else (entry - price) * abs(position) - SPREAD * abs(position)
+        pnl = (price - entry) * position - SPREAD * abs(position) if position > 0 else (entry - price) * abs(position) - SPREAD * abs(position)
         capital += pnl
-        msg = f"EOD CLOSE {time_now.strftime(\'%H:%M UTC\')} Price {price:.2f} PnL {pnl:+.2f} Cap {capital:.2f}"
+        time_str = time_now.strftime('%H:%M UTC')
+        msg = f"EOD CLOSE {time_str} Price {price:.2f} PnL {pnl:+.2f} Cap {capital:.2f}"
         position = 0
         entry = 0
         sl = 0
